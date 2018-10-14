@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95298F21216A74D000C418BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F20216A74D000C418BB /* AppDelegate.m */; };
+		95298F24216A74D000C418BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F23216A74D000C418BB /* ViewController.m */; };
+		95298F26216A74D100C418BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95298F25216A74D100C418BB /* Assets.xcassets */; };
+		95298F29216A74D100C418BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95298F27216A74D100C418BB /* Main.storyboard */; };
+		95298F2C216A74D100C418BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F2B216A74D100C418BB /* main.m */; };
+		95298F37216A74D200C418BB /* DolinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F36216A74D200C418BB /* DolinTests.m */; };
+		95298F42216A74D200C418BB /* DolinUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F41216A74D200C418BB /* DolinUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95298F33216A74D200C418BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95298F14216A74D000C418BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95298F1B216A74D000C418BB;
+			remoteInfo = Dolin;
+		};
+		95298F3E216A74D200C418BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95298F14216A74D000C418BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95298F1B216A74D000C418BB;
+			remoteInfo = Dolin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		95298F1C216A74D000C418BB /* Dolin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dolin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95298F1F216A74D000C418BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		95298F20216A74D000C418BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		95298F22216A74D000C418BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		95298F23216A74D000C418BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		95298F25216A74D100C418BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		95298F28216A74D100C418BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		95298F2A216A74D100C418BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95298F2B216A74D100C418BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		95298F2D216A74D100C418BB /* Dolin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dolin.entitlements; sourceTree = "<group>"; };
+		95298F32216A74D200C418BB /* DolinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DolinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95298F36216A74D200C418BB /* DolinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DolinTests.m; sourceTree = "<group>"; };
+		95298F38216A74D200C418BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95298F3D216A74D200C418BB /* DolinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DolinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95298F41216A74D200C418BB /* DolinUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DolinUITests.m; sourceTree = "<group>"; };
+		95298F43216A74D200C418BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95298F19216A74D000C418BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95298F2F216A74D200C418BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95298F3A216A74D200C418BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95298F13216A74D000C418BB = {
+			isa = PBXGroup;
+			children = (
+				95298F1E216A74D000C418BB /* Dolin */,
+				95298F35216A74D200C418BB /* DolinTests */,
+				95298F40216A74D200C418BB /* DolinUITests */,
+				95298F1D216A74D000C418BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95298F1D216A74D000C418BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95298F1C216A74D000C418BB /* Dolin.app */,
+				95298F32216A74D200C418BB /* DolinTests.xctest */,
+				95298F3D216A74D200C418BB /* DolinUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95298F1E216A74D000C418BB /* Dolin */ = {
+			isa = PBXGroup;
+			children = (
+				95298F1F216A74D000C418BB /* AppDelegate.h */,
+				95298F20216A74D000C418BB /* AppDelegate.m */,
+				95298F22216A74D000C418BB /* ViewController.h */,
+				95298F23216A74D000C418BB /* ViewController.m */,
+				95298F25216A74D100C418BB /* Assets.xcassets */,
+				95298F27216A74D100C418BB /* Main.storyboard */,
+				95298F2A216A74D100C418BB /* Info.plist */,
+				95298F2B216A74D100C418BB /* main.m */,
+				95298F2D216A74D100C418BB /* Dolin.entitlements */,
+			);
+			path = Dolin;
+			sourceTree = "<group>";
+		};
+		95298F35216A74D200C418BB /* DolinTests */ = {
+			isa = PBXGroup;
+			children = (
+				95298F36216A74D200C418BB /* DolinTests.m */,
+				95298F38216A74D200C418BB /* Info.plist */,
+			);
+			path = DolinTests;
+			sourceTree = "<group>";
+		};
+		95298F40216A74D200C418BB /* DolinUITests */ = {
+			isa = PBXGroup;
+			children = (
+				95298F41216A74D200C418BB /* DolinUITests.m */,
+				95298F43216A74D200C418BB /* Info.plist */,
+			);
+			path = DolinUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95298F1B216A74D000C418BB /* Dolin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95298F46216A74D200C418BB /* Build configuration list for PBXNativeTarget "Dolin" */;
+			buildPhases = (
+				95298F18216A74D000C418BB /* Sources */,
+				95298F19216A74D000C418BB /* Frameworks */,
+				95298F1A216A74D000C418BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Dolin;
+			productName = Dolin;
+			productReference = 95298F1C216A74D000C418BB /* Dolin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		95298F31216A74D200C418BB /* DolinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95298F49216A74D200C418BB /* Build configuration list for PBXNativeTarget "DolinTests" */;
+			buildPhases = (
+				95298F2E216A74D200C418BB /* Sources */,
+				95298F2F216A74D200C418BB /* Frameworks */,
+				95298F30216A74D200C418BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95298F34216A74D200C418BB /* PBXTargetDependency */,
+			);
+			name = DolinTests;
+			productName = DolinTests;
+			productReference = 95298F32216A74D200C418BB /* DolinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		95298F3C216A74D200C418BB /* DolinUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95298F4C216A74D200C418BB /* Build configuration list for PBXNativeTarget "DolinUITests" */;
+			buildPhases = (
+				95298F39216A74D200C418BB /* Sources */,
+				95298F3A216A74D200C418BB /* Frameworks */,
+				95298F3B216A74D200C418BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95298F3F216A74D200C418BB /* PBXTargetDependency */,
+			);
+			name = DolinUITests;
+			productName = DolinUITests;
+			productReference = 95298F3D216A74D200C418BB /* DolinUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95298F14216A74D000C418BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = gestalt;
+				TargetAttributes = {
+					95298F1B216A74D000C418BB = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					95298F31216A74D200C418BB = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 95298F1B216A74D000C418BB;
+					};
+					95298F3C216A74D200C418BB = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 95298F1B216A74D000C418BB;
+					};
+				};
+			};
+			buildConfigurationList = 95298F17216A74D000C418BB /* Build configuration list for PBXProject "Dolin" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95298F13216A74D000C418BB;
+			productRefGroup = 95298F1D216A74D000C418BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95298F1B216A74D000C418BB /* Dolin */,
+				95298F31216A74D200C418BB /* DolinTests */,
+				95298F3C216A74D200C418BB /* DolinUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95298F1A216A74D000C418BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95298F26216A74D100C418BB /* Assets.xcassets in Resources */,
+				95298F29216A74D100C418BB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95298F30216A74D200C418BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95298F3B216A74D200C418BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95298F18216A74D000C418BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95298F24216A74D000C418BB /* ViewController.m in Sources */,
+				95298F2C216A74D100C418BB /* main.m in Sources */,
+				95298F21216A74D000C418BB /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95298F2E216A74D200C418BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95298F37216A74D200C418BB /* DolinTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95298F39216A74D200C418BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95298F42216A74D200C418BB /* DolinUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95298F34216A74D200C418BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95298F1B216A74D000C418BB /* Dolin */;
+			targetProxy = 95298F33216A74D200C418BB /* PBXContainerItemProxy */;
+		};
+		95298F3F216A74D200C418BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95298F1B216A74D000C418BB /* Dolin */;
+			targetProxy = 95298F3E216A74D200C418BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		95298F27216A74D100C418BB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95298F28216A74D100C418BB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95298F44216A74D200C418BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		95298F45216A74D200C418BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		95298F47216A74D200C418BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Dolin/Dolin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Dolin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gestalt0rz.Dolin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		95298F48216A74D200C418BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Dolin/Dolin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Dolin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gestalt0rz.Dolin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		95298F4A216A74D200C418BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DolinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gestalt0rz.DolinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dolin.app/Contents/MacOS/Dolin";
+			};
+			name = Debug;
+		};
+		95298F4B216A74D200C418BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DolinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gestalt0rz.DolinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dolin.app/Contents/MacOS/Dolin";
+			};
+			name = Release;
+		};
+		95298F4D216A74D200C418BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DolinUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gestalt0rz.DolinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Dolin;
+			};
+			name = Debug;
+		};
+		95298F4E216A74D200C418BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DolinUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gestalt0rz.DolinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Dolin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95298F17216A74D000C418BB /* Build configuration list for PBXProject "Dolin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95298F44216A74D200C418BB /* Debug */,
+				95298F45216A74D200C418BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95298F46216A74D200C418BB /* Build configuration list for PBXNativeTarget "Dolin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95298F47216A74D200C418BB /* Debug */,
+				95298F48216A74D200C418BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95298F49216A74D200C418BB /* Build configuration list for PBXNativeTarget "DolinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95298F4A216A74D200C418BB /* Debug */,
+				95298F4B216A74D200C418BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95298F4C216A74D200C418BB /* Build configuration list for PBXNativeTarget "DolinUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95298F4D216A74D200C418BB /* Debug */,
+				95298F4E216A74D200C418BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95298F14216A74D000C418BB /* Project object */;
+}
