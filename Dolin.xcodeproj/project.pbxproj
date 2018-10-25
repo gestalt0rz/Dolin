@@ -14,6 +14,10 @@
 		95298F2C216A74D100C418BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F2B216A74D100C418BB /* main.m */; };
 		95298F37216A74D200C418BB /* DolinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F36216A74D200C418BB /* DolinTests.m */; };
 		95298F42216A74D200C418BB /* DolinUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F41216A74D200C418BB /* DolinUITests.m */; };
+		95298F56217DAD5B00C418BB /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95298F55217DAD5B00C418BB /* FMDB.framework */; };
+		95298F57217DAD5B00C418BB /* FMDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95298F55217DAD5B00C418BB /* FMDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95298F59217DAE0300C418BB /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95298F58217DAE0300C418BB /* libsqlite3.0.tbd */; };
+		95298F5C217DCFC500C418BB /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F5B217DCFC500C418BB /* DBManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		95298F52217DAA5C00C418BB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				95298F57217DAD5B00C418BB /* FMDB.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		95298F1C216A74D000C418BB /* Dolin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dolin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95298F1F216A74D000C418BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,6 +68,10 @@
 		95298F3D216A74D200C418BB /* DolinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DolinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95298F41216A74D200C418BB /* DolinUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DolinUITests.m; sourceTree = "<group>"; };
 		95298F43216A74D200C418BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95298F55217DAD5B00C418BB /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FMDB.framework; sourceTree = "<group>"; };
+		95298F58217DAE0300C418BB /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		95298F5A217DCFC500C418BB /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		95298F5B217DCFC500C418BB /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95298F59217DAE0300C418BB /* libsqlite3.0.tbd in Frameworks */,
+				95298F56217DAD5B00C418BB /* FMDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +107,7 @@
 				95298F1E216A74D000C418BB /* Dolin */,
 				95298F35216A74D200C418BB /* DolinTests */,
 				95298F40216A74D200C418BB /* DolinUITests */,
+				95298F54217DAB6F00C418BB /* Frameworks */,
 				95298F1D216A74D000C418BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,6 +125,8 @@
 		95298F1E216A74D000C418BB /* Dolin */ = {
 			isa = PBXGroup;
 			children = (
+				95298F5A217DCFC500C418BB /* DBManager.h */,
+				95298F5B217DCFC500C418BB /* DBManager.m */,
 				95298F1F216A74D000C418BB /* AppDelegate.h */,
 				95298F20216A74D000C418BB /* AppDelegate.m */,
 				95298F22216A74D000C418BB /* ViewController.h */,
@@ -131,6 +158,15 @@
 			path = DolinUITests;
 			sourceTree = "<group>";
 		};
+		95298F54217DAB6F00C418BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95298F58217DAE0300C418BB /* libsqlite3.0.tbd */,
+				95298F55217DAD5B00C418BB /* FMDB.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +177,7 @@
 				95298F18216A74D000C418BB /* Sources */,
 				95298F19216A74D000C418BB /* Frameworks */,
 				95298F1A216A74D000C418BB /* Resources */,
+				95298F52217DAA5C00C418BB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,6 +300,7 @@
 				95298F24216A74D000C418BB /* ViewController.m in Sources */,
 				95298F2C216A74D100C418BB /* main.m in Sources */,
 				95298F21216A74D000C418BB /* AppDelegate.m in Sources */,
+				95298F5C217DCFC500C418BB /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +465,10 @@
 				CODE_SIGN_ENTITLEMENTS = Dolin/Dolin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Dolin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,6 +486,10 @@
 				CODE_SIGN_ENTITLEMENTS = Dolin/Dolin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Dolin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
