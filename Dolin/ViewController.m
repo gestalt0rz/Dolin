@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DBManager.h"
 
 @implementation ViewController
 
@@ -14,6 +15,7 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
+    [DBManager sharedManager];
 }
 
 
