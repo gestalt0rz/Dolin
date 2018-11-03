@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FMDB/FMDB.h>
+
+@class FMDatabase;
+@class FMResultSet;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DBManager : NSObject
+@property (nonatomic) FMDatabase *db;
 
 + (id)sharedManager;
 - (instancetype)initWithDBFilePath:(NSString *)path;

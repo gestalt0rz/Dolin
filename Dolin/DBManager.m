@@ -7,12 +7,12 @@
 //
 
 #import "DBManager.h"
+#import <FMDB/FMDB.h>
 
 static NSString * const kDBFileName = @"dolin.db";
 
 @interface DBManager ()
 @property (nonatomic) NSString *dbFilePath;
-@property (nonatomic) FMDatabase *db;
 @end
 
 @implementation DBManager
