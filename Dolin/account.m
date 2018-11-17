@@ -54,12 +54,23 @@ static NSString * const kSQLUpdate = @""
     NSString* dbPassword = [(FMResultSet *)[[DBManager sharedManager] executeQuery:kSQLSelect, accountType] stringForColumnIndex:0];
     NSString* checkPasswrod = [Account md5SignWithString:password];
     
-    if([dbPassword isEqualToString:checkPasswrod]) return YES;
-    else return NO;
+    if([dbPassword isEqualToString:checkPasswrod]){
+        self.accountType = accountType;
+        return YES;
+    }else return NO;
+}
+
+- (void)logout {
+    self.accountType = ACCOUNT_NORMAL;
 }
 
 - (BOOL)isPermitted {
     if(self.accountType == ACCOUNT_ADMIN || self.accountType == ACCOUNT_PROGRAMMER) return YES;
+    else return NO;
+}
+
+- (BOOL)isProgrammer {
+    if(self.accountType == ACCOUNT_PROGRAMMER) return YES;
     else return NO;
 }
 

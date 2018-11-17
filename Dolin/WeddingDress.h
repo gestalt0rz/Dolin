@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum{
+typedef NS_ENUM(NSUInteger, WeddingDressStatus){
     WD_STOCK = 0,
     WD_WASHING,
     WD_ALTERING,
     WD_RENTING
-}WeddingDressStatus;
+};
 
 extern NSInteger const vDefaultVender;
 extern NSInteger const vDefaultPrice;

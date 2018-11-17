@@ -19,7 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Account : NSObject
 + (id)sharedAccount;
 - (BOOL)login:(AccountType)accountType password:(NSString *)password;
+- (void)logout;
 - (BOOL)isPermitted;
+- (BOOL)isProgrammer;
 - (BOOL)changePassword:(NSString *)password type:(AccountType)type;
 @end
 

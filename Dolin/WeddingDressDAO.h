@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class WeddingDress;
+#import "WeddingDress.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WeddingDressDAO : NSObject
 - (BOOL)create;
 - (WeddingDress *)add:(NSString *)sn title:(NSString *)title rent:(NSInteger)rent purchase_date:(NSDate *)purchase_date purchase_price:(NSInteger)purchase_price vender_id:(NSInteger)vender_id;
-- (NSArray *)find;
+- (NSArray *)find:(WeddingDressStatus)wdStatus;
 - (BOOL)remove:(NSInteger)weddingDressId;
 - (BOOL)update:(WeddingDress *)weddingDress;
 @end

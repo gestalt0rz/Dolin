@@ -8,8 +8,8 @@
 
 #import "WeddingDressDAO.h"
 #import "DBManager.h"
-#import "WeddingDress.h"
 #import <FMDB/FMDB.h>
+#import "Account.h"
 
 /** Query for the create table. */
 static NSString * const kSQLCreate = @""
@@ -31,6 +31,8 @@ static NSString * const kSQLSelect = @""
 "id, sn, title, rent, status, handling_vender_id "
 "FROM "
 "weddingDress;"
+"WHERE "
+"status = ?"
 "ORDER BY "
 "id;";
 
@@ -40,6 +42,8 @@ static NSString * const kPermittedSQLSelect = @""
 "id, sn, title, rent, status, handling_vender_id, purchase_date, purchase_price, purchase_vender_id "
 "FROM "
 "weddingDress;"
+"WHERE "
+"status = ?"
 "ORDER BY "
 "id;";
 
@@ -107,19 +111,24 @@ static NSString * const kSQLDelete = @""
     if ([self.dm executeUpdate:kSQLInsert, sn, title, [NSNumber numberWithInteger:rent], purchase_date, [NSNumber numberWithInteger:purchase_price], [NSNumber numberWithInteger:vender_id]]) {
         NSInteger weddingDressId = [[self.dm db] lastInsertRowId];
         wd = [WeddingDress weddingDressWithId:weddingDressId sn:sn title:title rent:rent status:WD_STOCK handlingVender:vDefaultVender];
-        [wd setPurchase_date:nil purchase_price:vDefaultPrice vender_id:vDefaultVender];//TODO permitted
+        if([[Account sharedAccount] isPermitted])
+            [wd setPurchase_date:purchase_date purchase_price:purchase_price vender_id:vender_id];
+        else
+            [wd setPurchase_date:nil purchase_price:vDefaultPrice vender_id:vDefaultVender];
     }
-    
     return wd;
 }
 
-- (NSArray *)find {
+- (NSArray *)find:(WeddingDressStatus)wdStatus {
     NSMutableArray *WeddingDresses = [NSMutableArray arrayWithCapacity:0];
-    FMResultSet    *results = [self.dm executeQuery:kSQLSelect];
+    FMResultSet    *results = ([[Account sharedAccount] isPermitted])? [self.dm executeQuery:kPermittedSQLSelect, [NSNumber numberWithInteger:wdStatus]]:[self.dm executeQuery:kSQLSelect, [NSNumber numberWithInteger:wdStatus]];
     
     while ([results next]) {
         WeddingDress* wd = [WeddingDress weddingDressWithId:[results intForColumnIndex:0] sn:[results stringForColumnIndex:1] title:[results stringForColumnIndex:2] rent:[results intForColumnIndex:3] status:[results intForColumnIndex:4] handlingVender:[results intForColumnIndex:5]];
-        [wd setPurchase_date:nil purchase_price:vDefaultPrice vender_id:vDefaultVender];//TODO permitted
+        if([[Account sharedAccount] isPermitted])
+            [wd setPurchase_date:[results dateForColumn:@"purchase_date"] purchase_price:[results intForColumn:@"purchase_price"] vender_id:[results intForColumn:@"vender_id"]];
+        else
+            [wd setPurchase_date:nil purchase_price:vDefaultPrice vender_id:vDefaultVender];
         [WeddingDresses addObject:wd];
     }
     
@@ -127,17 +136,33 @@ static NSString * const kSQLDelete = @""
 }
 
 - (BOOL)remove:(NSInteger)weddingDressId {
-    return [self.dm executeUpdate:kSQLDelete, [NSNumber numberWithInteger:weddingDressId]];
+    if([[Account sharedAccount] isPermitted])
+        return [self.dm executeUpdate:kSQLDelete, [NSNumber numberWithInteger:weddingDressId]];
+    else
+        return NO;
 }
 
 - (BOOL)update:(WeddingDress *)weddingDress {
-    return [self.dm executeUpdate:kSQLUpdate,
-            weddingDress.sn,
-            weddingDress.title,
-            [NSNumber numberWithInteger:weddingDress.rent],
-            [NSNumber numberWithInteger:weddingDress.status],
-            [NSNumber numberWithInteger:weddingDress.handling_vender_id],
-            [NSNumber numberWithInteger:weddingDress.weddingDressId]];
+    if([[Account sharedAccount] isPermitted]) { // for admin, manage and maintain wedding dress
+        return [self.dm executeUpdate:kPermittedSQLUpdate,
+                weddingDress.sn,
+                weddingDress.title,
+                [NSNumber numberWithInteger:weddingDress.rent],
+                [NSNumber numberWithInteger:weddingDress.status],
+                [NSNumber numberWithInteger:weddingDress.handling_vender_id],
+                weddingDress.purchase_date,
+                [NSNumber numberWithInteger:weddingDress.purchase_price],
+                [NSNumber numberWithInteger:weddingDress.purchase_vender_id],
+                [NSNumber numberWithInteger:weddingDress.weddingDressId]];
+    }else { // for Order, to update status
+        return [self.dm executeUpdate:kSQLUpdate,
+                weddingDress.sn,
+                weddingDress.title,
+                [NSNumber numberWithInteger:weddingDress.rent],
+                [NSNumber numberWithInteger:weddingDress.status],
+                [NSNumber numberWithInteger:weddingDress.handling_vender_id],
+                [NSNumber numberWithInteger:weddingDress.weddingDressId]];
+    }
 }
 
 

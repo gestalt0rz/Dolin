@@ -21,6 +21,7 @@
 		95298F5F2189A26400C418BB /* WeddingDressDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F5E2189A26400C418BB /* WeddingDressDAO.m */; };
 		95298F622189B0D500C418BB /* WeddingDress.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F612189B0D500C418BB /* WeddingDress.m */; };
 		95298F68218DE15300C418BB /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F66218DE15300C418BB /* Account.m */; };
+		95298F6E2190B44C00C418BB /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F6D2190B44C00C418BB /* WindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		95298F612189B0D500C418BB /* WeddingDress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeddingDress.m; sourceTree = "<group>"; };
 		95298F66218DE15300C418BB /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		95298F67218DE15300C418BB /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		95298F6C2190B44C00C418BB /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
+		95298F6D2190B44C00C418BB /* WindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				95298F5E2189A26400C418BB /* WeddingDressDAO.m */,
 				95298F602189B0D500C418BB /* WeddingDress.h */,
 				95298F612189B0D500C418BB /* WeddingDress.m */,
+				95298F6C2190B44C00C418BB /* WindowController.h */,
+				95298F6D2190B44C00C418BB /* WindowController.m */,
 			);
 			path = Dolin;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95298F24216A74D000C418BB /* ViewController.m in Sources */,
+				95298F6E2190B44C00C418BB /* WindowController.m in Sources */,
 				95298F5F2189A26400C418BB /* WeddingDressDAO.m in Sources */,
 				95298F2C216A74D100C418BB /* main.m in Sources */,
 				95298F21216A74D000C418BB /* AppDelegate.m in Sources */,

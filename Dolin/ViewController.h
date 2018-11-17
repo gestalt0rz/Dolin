@@ -8,8 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController
+@interface ViewController : NSSplitViewController <NSSplitViewDelegate>
 
+@property IBOutlet NSViewController* sidebarViewController;
+@property IBOutlet NSViewController* bodyViewController;
+@property IBOutlet NSView* sidebarView;
+@property IBOutlet NSView* bodyView;
+
+@property CGFloat fixedWidth;
+
+@property IBOutlet NSSplitView* splitView ;
+
+- (IBAction)collapseSidebar:(id)sender ;
+- (IBAction)expandSidebar:(id)sender ;
 
 @end
 
