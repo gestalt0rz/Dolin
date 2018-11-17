@@ -26,9 +26,9 @@
 
 - (void)flagsChanged:(NSEvent *)event {
     if([event modifierFlags] & NSEventModifierFlagOption) {
-        NSLog(@"key down option");
+        //NSLog(@"key down option");
     } else {
-        NSLog(@"key up option");
+        //NSLog(@"key up option");
     }
 }
 

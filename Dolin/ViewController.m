@@ -9,55 +9,66 @@
 #import "ViewController.h"
 #import "DBManager.h"
 
+@interface ViewController () {
+    NSString *barcodeString;
+}
+@end
+
 @implementation ViewController
 
-@dynamic splitView;
-
 - (void)viewDidLoad {
-    /*NSSplitViewItem* sidebarItem = [[NSSplitViewItem alloc] init] ;
-    sidebarItem.viewController = self.sidebarViewController;
-    [self insertSplitViewItem:sidebarItem atIndex:0] ;
-    
-    NSSplitViewItem* bodyItem = [[NSSplitViewItem alloc] init] ;
-    bodyItem.viewController = self.bodyViewController;
-    [self insertSplitViewItem:bodyItem atIndex:1] ;*/
-    
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
+    [_splitView setDelegate:self];
+    [_barcodeTextField setDelegate:self];
+    
+    [self drawBackgroudColor:[[NSColor blackColor] CGColor] view:[self view]];
+    [self drawBackgroudColor:[[NSColor darkGrayColor] CGColor] view:_sidebarView];
+    [self drawBackgroudColor:[[NSColor lightGrayColor] CGColor] view:_bodyView];
 }
-
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
 
     // Update the view, if already loaded.
+    [self drawBackgroudColor:[[NSColor cyanColor] CGColor] view:[self view]];
 }
 
-- (void)setFixedWidth:(CGFloat)width {
-    //[self.sidebarView removeWidthConstraints];
+#pragma mark - Delegate Callback Functions
+
+-(void)splitView:(NSSplitView *)sender resizeSubviewsWithOldSize:(NSSize)oldSize {
+    NSLog(@"%@ %@", [self className], NSStringFromSelector(_cmd));
+    CGFloat dividerThickness = [sender dividerThickness];
+    NSRect leftRect = [[[sender subviews] objectAtIndex:0] frame];
+    NSRect rightRect = [[[sender subviews] objectAtIndex:1] frame];
+    NSRect newFrame = [sender frame];
     
-    [[self.splitViewItems firstObject] setMinimumThickness:width];
-    [[self.splitViewItems firstObject] setMaximumThickness:width];
+    leftRect.size.height = newFrame.size.height;
+    leftRect.origin = NSMakePoint(0, 0);
+    rightRect.size.width = newFrame.size.width - leftRect.size.width
+    - dividerThickness;
+    rightRect.size.height = newFrame.size.height;
+    rightRect.origin.x = leftRect.size.width + dividerThickness;
+    
+    [[[sender subviews] objectAtIndex:0] setFrame:leftRect];
+    [[[sender subviews] objectAtIndex:1] setFrame:rightRect];
 }
 
-- (CGFloat)fixedWidth {
-    return [self.splitViewItems firstObject].minimumThickness;
+-(void)controlTextDidEndEditing:(NSNotification *)notification {
+    // See if it was due to a return
+    if ( [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue] == NSReturnTextMovement ) {
+        barcodeString = [_barcodeTextField stringValue];
+        [_barcodeTextField setStringValue:@""];
+        NSLog(@"Return was pressed! %@", barcodeString);
+    }
 }
 
-+ (NSSet*)keyPathsForValuesAffectingFixedWidth {
-    return [NSSet setWithObjects:
-            @"splitViewItems",
-            nil] ;
-}
+#pragma mark - Private
 
-- (IBAction)expandSidebar:(id)sender {
-    [[[[self splitViewItems] firstObject] animator] setCollapsed:NO];
+- (void)drawBackgroudColor:(CGColorRef)color view:(NSView *)view {
+    [view setWantsLayer:YES];
+    [view.layer setBackgroundColor:color];
 }
-
-- (IBAction)collapseSidebar:(id)sender {
-    [[[[self splitViewItems] firstObject] animator] setCollapsed:YES];
-}
-
 
 @end

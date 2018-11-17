@@ -7,20 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+//#import "FixedSidebarSplitView.h"
 
-@interface ViewController : NSSplitViewController <NSSplitViewDelegate>
+@interface ViewController : NSViewController <NSSplitViewDelegate, NSTextFieldDelegate>
 
-@property IBOutlet NSViewController* sidebarViewController;
-@property IBOutlet NSViewController* bodyViewController;
-@property IBOutlet NSView* sidebarView;
-@property IBOutlet NSView* bodyView;
-
-@property CGFloat fixedWidth;
-
-@property IBOutlet NSSplitView* splitView ;
-
-- (IBAction)collapseSidebar:(id)sender ;
-- (IBAction)expandSidebar:(id)sender ;
+@property (weak) IBOutlet NSSplitView *splitView;
+@property (weak) IBOutlet NSView *sidebarView;
+@property (weak) IBOutlet NSView *bodyView;
+@property (weak) IBOutlet NSTextField *barcodeTextField;
 
 @end
 
