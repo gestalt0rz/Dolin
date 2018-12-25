@@ -7,14 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-//#import "FixedSidebarSplitView.h"
 
-@interface ViewController : NSViewController <NSSplitViewDelegate, NSTextFieldDelegate>
+@interface ViewController : NSViewController <NSSplitViewDelegate, NSSearchFieldDelegate>
 
 @property (weak) IBOutlet NSSplitView *splitView;
-@property (weak) IBOutlet NSView *sidebarView;
+@property (weak) IBOutlet NSVisualEffectView *sidebarView;
 @property (weak) IBOutlet NSView *bodyView;
-@property (weak) IBOutlet NSTextField *barcodeTextField;
+@property (weak) IBOutlet NSSearchField *barcodeSearching;
+
 
 @end
 

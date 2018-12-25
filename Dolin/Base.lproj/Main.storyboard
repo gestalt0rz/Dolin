@@ -685,40 +685,51 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="WindowController" sceneMemberID="viewController">
-                    <window key="window" title="杜林紙草" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="杜林紙草" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="960" height="540"/>
+                        <rect key="contentRect" x="196" y="240" width="1180" height="700"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="nxY-3z-tFw"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="385"/>
+            <point key="canvasLocation" x="75" y="483"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="700"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcM-dS-JHF">
-                                <rect key="frame" x="0.0" y="0.0" width="960" height="445"/>
+                            <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hlE-bU-JuV">
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="700"/>
                                 <subviews>
-                                    <customView fixedFrame="YES" id="Sgr-tU-LsZ" userLabel="Sidebar View">
-                                        <rect key="frame" x="0.0" y="0.0" width="208" height="445"/>
+                                    <customView fixedFrame="YES" id="heW-DB-hFG" userLabel="sidebar View" customClass="NSVisualEffectView">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="700"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAr-wP-wMs">
+                                                <rect key="frame" x="20" y="636" width="180" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" id="Ubl-IX-0Og">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </searchFieldCell>
+                                            </searchField>
+                                        </subviews>
                                     </customView>
-                                    <customView fixedFrame="YES" id="Thu-qs-lZM" userLabel="Body View">
-                                        <rect key="frame" x="209" y="0.0" width="751" height="445"/>
+                                    <customView fixedFrame="YES" id="lYV-w4-zcz" userLabel="body View">
+                                        <rect key="frame" x="221" y="0.0" width="959" height="700"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </customView>
                                 </subviews>
@@ -727,38 +738,24 @@
                                     <real value="250"/>
                                 </holdingPriorities>
                             </splitView>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fSK-1B-dJs">
-                                <rect key="frame" x="303" y="475" width="354" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="354" id="NY4-Zq-Pka"/>
-                                    <constraint firstAttribute="height" constant="35" id="pob-cM-zP8"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" drawsBackground="YES" id="bwH-Lg-JCz">
-                                    <font key="font" metaFont="system" size="17"/>
-                                    <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="xcM-dS-JHF" firstAttribute="bottom" secondItem="m2S-Jp-Qdl" secondAttribute="bottom" id="8ej-6E-gww"/>
-                            <constraint firstAttribute="trailing" secondItem="xcM-dS-JHF" secondAttribute="trailing" id="M3W-nQ-ZxM"/>
-                            <constraint firstItem="fSK-1B-dJs" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="d9l-C6-0AF"/>
-                            <constraint firstItem="fSK-1B-dJs" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="h5c-Py-fhr"/>
-                            <constraint firstItem="xcM-dS-JHF" firstAttribute="top" secondItem="fSK-1B-dJs" secondAttribute="bottom" constant="30" id="wgn-l7-I8S"/>
-                            <constraint firstItem="xcM-dS-JHF" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="yIj-o6-HQU"/>
+                            <constraint firstItem="hlE-bU-JuV" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="1f3-4B-3xj"/>
+                            <constraint firstAttribute="trailing" secondItem="hlE-bU-JuV" secondAttribute="trailing" id="FZy-Vr-cN9"/>
+                            <constraint firstItem="hlE-bU-JuV" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="GQl-GI-D6q"/>
+                            <constraint firstAttribute="bottom" secondItem="hlE-bU-JuV" secondAttribute="bottom" id="PkT-8m-0y2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="barcodeTextField" destination="fSK-1B-dJs" id="UZa-kQ-Ee1"/>
-                        <outlet property="bodyView" destination="Thu-qs-lZM" id="uEJ-DY-2A6"/>
-                        <outlet property="sidebarView" destination="Sgr-tU-LsZ" id="sho-dm-eD9"/>
-                        <outlet property="splitView" destination="xcM-dS-JHF" id="yNz-PC-Lpn"/>
+                        <outlet property="barcodeSearching" destination="mAr-wP-wMs" id="BZh-Qv-lxc"/>
+                        <outlet property="bodyView" destination="lYV-w4-zcz" id="4tI-Xc-AB0"/>
+                        <outlet property="sidebarView" destination="heW-DB-hFG" id="n6X-c6-yd7"/>
+                        <outlet property="splitView" destination="hlE-bU-JuV" id="CMy-EA-Zkn"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="1093"/>
+            <point key="canvasLocation" x="75" y="1536"/>
         </scene>
     </scenes>
 </document>
