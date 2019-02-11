@@ -18,6 +18,10 @@
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    NSTitlebarAccessoryViewController *titlebarAccessoryVC = [[NSTitlebarAccessoryViewController alloc] init];
+    titlebarAccessoryVC.view = self.titleView;
+    titlebarAccessoryVC.layoutAttribute = NSLayoutAttributeBottom;
+    [[self window] addTitlebarAccessoryViewController:titlebarAccessoryVC];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {

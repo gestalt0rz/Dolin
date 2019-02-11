@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WindowController : NSWindowController
+@property (strong) IBOutlet NSView *titleView;
 
 @end
 

@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isPermitted;
 - (BOOL)isProgrammer;
 - (BOOL)changePassword:(NSString *)password type:(AccountType)type;
+- (NSString *)getCurrentAccountName;
+- (NSString *)getCurrentAccountImage;
 @end
 
 NS_ASSUME_NONNULL_END

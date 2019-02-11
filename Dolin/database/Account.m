@@ -16,6 +16,13 @@
 
 #include <CommonCrypto/CommonDigest.h>
 
+static NSString * const normalName = @"杜林紙草";
+static NSString * const adminName = @"管理員";
+static NSString * const programmerName = @"程式管理員";
+
+static NSString * const normalImage = @"dolin";
+static NSString * const adminImage = @"dolin";
+static NSString * const programmerImage = @"gestalt_1700x1700";
 
 /** Query for the select rows. */
 static NSString * const kSQLSelect = @""
@@ -81,6 +88,38 @@ static NSString * const kSQLUpdate = @""
                 [NSNumber numberWithInteger:type]];
     }
     return NO;
+}
+
+- (NSString *)getCurrentAccountName {
+    NSString *name = nil;
+    switch (self.accountType) {
+        case ACCOUNT_NORMAL:
+            name = normalName;
+            break;
+        case ACCOUNT_ADMIN:
+            name = adminName;
+            break;
+        case ACCOUNT_PROGRAMMER:
+            name = programmerName;
+            break;
+    }
+    return name;
+}
+
+- (NSString *)getCurrentAccountImage {
+    NSString *name = nil;
+    switch (self.accountType) {
+        case ACCOUNT_NORMAL:
+            name = normalImage;
+            break;
+        case ACCOUNT_ADMIN:
+            name = adminImage;
+            break;
+        case ACCOUNT_PROGRAMMER:
+            name = programmerImage;
+            break;
+    }
+    return name;
 }
 
 #pragma mark - Private

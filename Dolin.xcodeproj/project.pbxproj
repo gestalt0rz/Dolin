@@ -18,6 +18,9 @@
 		95298F57217DAD5B00C418BB /* FMDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95298F55217DAD5B00C418BB /* FMDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95298F59217DAE0300C418BB /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95298F58217DAE0300C418BB /* libsqlite3.0.tbd */; };
 		95298F6E2190B44C00C418BB /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95298F6D2190B44C00C418BB /* WindowController.m */; };
+		953241242211E58000F7096B /* gestalt_1700x1700.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 953241232211E58000F7096B /* gestalt_1700x1700.jpg */; };
+		953241262211EAFB00F7096B /* dolin.png in Resources */ = {isa = PBXBuildFile; fileRef = 953241252211EAFB00F7096B /* dolin.png */; };
+		959083C621D5777F00532DE2 /* CustomVisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959083C521D5777F00532DE2 /* CustomVisualEffectView.m */; };
 		95B3852E21A0524F00D3604A /* WeddingDressDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3852221A0524F00D3604A /* WeddingDressDAO.m */; };
 		95B3852F21A0524F00D3604A /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3852621A0524F00D3604A /* Account.m */; };
 		95B3853021A0524F00D3604A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3852721A0524F00D3604A /* DBManager.m */; };
@@ -76,6 +79,10 @@
 		95298F58217DAE0300C418BB /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		95298F6C2190B44C00C418BB /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
 		95298F6D2190B44C00C418BB /* WindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
+		953241232211E58000F7096B /* gestalt_1700x1700.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gestalt_1700x1700.jpg; sourceTree = "<group>"; };
+		953241252211EAFB00F7096B /* dolin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dolin.png; sourceTree = "<group>"; };
+		959083C421D5777F00532DE2 /* CustomVisualEffectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomVisualEffectView.h; sourceTree = "<group>"; };
+		959083C521D5777F00532DE2 /* CustomVisualEffectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomVisualEffectView.m; sourceTree = "<group>"; };
 		95B3852221A0524F00D3604A /* WeddingDressDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingDressDAO.m; sourceTree = "<group>"; };
 		95B3852321A0524F00D3604A /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		95B3852421A0524F00D3604A /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -137,6 +144,7 @@
 		95298F1E216A74D000C418BB /* Dolin */ = {
 			isa = PBXGroup;
 			children = (
+				953241202211DDCA00F7096B /* resources */,
 				95B3852121A0524F00D3604A /* database */,
 				95B3852821A0524F00D3604A /* objects */,
 				95298F1F216A74D000C418BB /* AppDelegate.h */,
@@ -181,6 +189,15 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		953241202211DDCA00F7096B /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				953241252211EAFB00F7096B /* dolin.png */,
+				953241232211E58000F7096B /* gestalt_1700x1700.jpg */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		95B3852121A0524F00D3604A /* database */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +216,8 @@
 			children = (
 				95B3852921A0524F00D3604A /* WeddingDress.m */,
 				95B3852A21A0524F00D3604A /* WeddingDress.h */,
+				959083C421D5777F00532DE2 /* CustomVisualEffectView.h */,
+				959083C521D5777F00532DE2 /* CustomVisualEffectView.m */,
 			);
 			path = objects;
 			sourceTree = "<group>";
@@ -308,6 +327,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				95298F26216A74D100C418BB /* Assets.xcassets in Resources */,
+				953241242211E58000F7096B /* gestalt_1700x1700.jpg in Resources */,
+				953241262211EAFB00F7096B /* dolin.png in Resources */,
 				95298F29216A74D100C418BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +358,7 @@
 				95B3853121A0524F00D3604A /* WeddingDress.m in Sources */,
 				95298F24216A74D000C418BB /* ViewController.m in Sources */,
 				95298F6E2190B44C00C418BB /* WindowController.m in Sources */,
+				959083C621D5777F00532DE2 /* CustomVisualEffectView.m in Sources */,
 				95B3852E21A0524F00D3604A /* WeddingDressDAO.m in Sources */,
 				95298F2C216A74D100C418BB /* main.m in Sources */,
 				95298F21216A74D000C418BB /* AppDelegate.m in Sources */,

@@ -8,13 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController <NSSplitViewDelegate, NSSearchFieldDelegate>
+@class CustomVisualEffectView;
+
+@interface ViewController : NSViewController <NSSplitViewDelegate, NSSearchFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSSplitView *splitView;
-@property (weak) IBOutlet NSVisualEffectView *sidebarView;
+@property (weak) IBOutlet CustomVisualEffectView *sidebarView;
 @property (weak) IBOutlet NSView *bodyView;
 @property (weak) IBOutlet NSSearchField *barcodeSearching;
 
+@property (weak) IBOutlet NSTableView *outletTableView;
+@property (weak) IBOutlet NSTableView *bottomTableView;
 
 @end
 
