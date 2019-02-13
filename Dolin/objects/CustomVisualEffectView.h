@@ -18,8 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)drawSelectionInRect:(NSRect)dirtyRect;
 @end
 
-//@interface NSSearchFieldCell (height)
-//- (void) drawWithFrame:(NSRect)cellFrame inView:(NSView*)controlView;
-//@end
+@interface CustomImageView : NSImageView
+
+@end
+
+@interface popoverViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
+
+@property (weak) IBOutlet NSTableView *accountTableView;
+@property (weak) id container;
+@end
 
 NS_ASSUME_NONNULL_END

@@ -10,7 +10,7 @@
 
 @class CustomVisualEffectView;
 
-@interface ViewController : NSViewController <NSSplitViewDelegate, NSSearchFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
+@interface ViewController : NSViewController <NSSplitViewDelegate, NSSearchFieldDelegate, NSTableViewDataSource, NSTableViewDelegate, NSPopoverDelegate>
 
 @property (weak) IBOutlet NSSplitView *splitView;
 @property (weak) IBOutlet CustomVisualEffectView *sidebarView;
@@ -19,6 +19,8 @@
 
 @property (weak) IBOutlet NSTableView *outletTableView;
 @property (weak) IBOutlet NSTableView *bottomTableView;
+
+- (void)closePopover;
 
 @end
 

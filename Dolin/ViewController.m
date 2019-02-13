@@ -9,13 +9,17 @@
 #import "ViewController.h"
 #import "Account.h"
 #import "DBManager.h"
-#import "objects/CustomVisualEffectView.h"
+#import "CustomVisualEffectView.h"
+
+static NSString * const changePassword = @"修改密碼";
 
 @interface ViewController () {
     NSString *barcodeString;
     CGFloat sidebarWidth;
     NSArray *staticItems;
     NSInteger itemsCount;
+    popoverViewController *pVC;
+    NSPopover *accountPopover;
 }
 @end
 
@@ -52,6 +56,16 @@
     [_bottomTableView setUsesStaticContents:YES];
     [_bottomTableView setDelegate:self];
     [_bottomTableView setDataSource:self];
+    
+    // popover
+    pVC = [self.storyboard instantiateControllerWithIdentifier:@"popover"];
+    accountPopover = [[NSPopover alloc] init];
+    [accountPopover setContentSize:NSMakeSize(200.0, 180.0)];
+    [accountPopover setBehavior:NSPopoverBehaviorTransient];
+    [accountPopover setAnimates:YES];
+    [accountPopover setContentViewController:pVC];
+    [accountPopover setDelegate:self];
+    [pVC setContainer:self];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -119,8 +133,6 @@
 - (NSView *)tableView:(NSTableView *)tableView
    viewForTableColumn:(NSTableColumn *)tableColumn
                   row:(NSInteger)row {
-    //NSString *columnID = tableColumn.identifier;
-    //NSLog(@"columnID : %@ ,row : %ld",columnID,(long)row);
     NSString *strIdt = nil;
     NSTableCellView *cell = nil;
     
@@ -141,14 +153,19 @@
         strIdt = @"cellView";
         cell = [tableView makeViewWithIdentifier:strIdt owner:self];
         
-        /*if (!cell) {
-            cell = [[NSTableCellView alloc]init];
-            cell.identifier = strIdt;
-        }*/
-        //CustomTableRowView *cRowView = (CustomTableRowView *)[tableView rowViewAtRow:row makeIfNecessary:NO];
-        //[cRowView setEmphasized:NO];
-        cell.imageView.image = [NSImage imageNamed:staticItems[row][0]];
-        cell.textField.stringValue = staticItems[row][1];
+        if([[Account sharedAccount] isProgrammer] && row == [staticItems count]) {
+            cell.imageView.image = [NSImage imageNamed:[[Account sharedAccount] getCurrentAccountImage]];
+            [cell.imageView setWantsLayer:YES];
+            cell.imageView.layer.cornerRadius = cell.imageView.frame.size.width / 2;
+            cell.imageView.layer.masksToBounds = YES;
+            cell.textField.stringValue = changePassword;
+        }else{
+            cell.imageView.image = [NSImage imageNamed:staticItems[row][0]];
+            [cell.imageView setWantsLayer:YES];
+            cell.imageView.layer.cornerRadius = 0;
+            cell.imageView.layer.masksToBounds = YES;
+            cell.textField.stringValue = staticItems[row][1];
+        }
     }
     
     return cell;
@@ -158,15 +175,47 @@
     NSTableView* tableView = notification.object;
     NSInteger row = [tableView selectedRow];
     
-    //TODO change body view
-    
     if(row != -1) {
         if (tableView == _bottomTableView) {
             [_outletTableView deselectAll:nil];
+            
+            NSTableRowView *rowView = [tableView rowViewAtRow:row makeIfNecessary:NO];
+            
+            // Convert point to main window coordinates
+            NSRect entryRect = [rowView convertRect:rowView.bounds
+                                             toView:[[NSApp mainWindow] contentView]];
+            
+            // Show popover
+            [accountPopover showRelativeToRect:entryRect
+                                      ofView:[[NSApp mainWindow] contentView]
+                               preferredEdge:NSMaxYEdge];
         }else{
             [_bottomTableView deselectAll:nil];
+            
+            //TODO change body view
         }
     }
+}
+
+#pragma mark - popover delegate
+
+- (void)closePopover {
+    //NSLog(@"%@ %@", [self className], NSStringFromSelector(_cmd));
+    [accountPopover close];
+    [_bottomTableView reloadData];
+    
+    itemsCount = ([[Account sharedAccount] isProgrammer])? [staticItems count] + 1 : [staticItems count];
+    [_outletTableView reloadData];
+}
+
+- (void)popoverWillClose:(NSNotification *)notification {
+    //NSLog(@"%@ %@", [self className], NSStringFromSelector(_cmd));
+    [_bottomTableView deselectAll:nil];
+}
+
+- (void)popoverDidClose:(NSNotification *)notification {
+    //NSLog(@"%@ %@", [self className], NSStringFromSelector(_cmd));
+    //[_bottomTableView deselectAll:nil];
 }
 
 #pragma mark - Private

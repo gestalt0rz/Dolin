@@ -25,22 +25,10 @@ static NSString * const adminImage = @"dolin";
 static NSString * const programmerImage = @"gestalt_1700x1700";
 
 /** Query for the select rows. */
-static NSString * const kSQLSelect = @""
-"SELECT "
-"password "
-"FROM "
-"account;"
-"WHERE "
-"type =?;";
+static NSString * const kSQLSelect = @"SELECT password FROM account WHERE type =\"%@\";";
 
 /** Query for the update row. */
-static NSString * const kSQLUpdate = @""
-"UPDATE "
-"account "
-"SET "
-"password=? "
-"WHERE "
-"type = ?;";
+static NSString * const kSQLUpdate = @"UPDATE account SET password=\"%@\" WHERE type = \"%@\";";
 
 @interface Account ()
 @property (nonatomic) AccountType accountType;
@@ -58,8 +46,14 @@ static NSString * const kSQLUpdate = @""
 }
 
 - (BOOL)login:(AccountType)accountType password:(NSString *)password {
-    NSString* dbPassword = [(FMResultSet *)[[DBManager sharedManager] executeQuery:kSQLSelect, accountType] stringForColumnIndex:0];
+    FMResultSet *result = (FMResultSet *)[[DBManager sharedManager] executeQuery:kSQLSelect, [NSNumber numberWithInteger:accountType]];
+    NSString* dbPassword = nil;
     NSString* checkPasswrod = [Account md5SignWithString:password];
+    
+    if([result next])
+        dbPassword = [result stringForColumnIndex:0];
+    
+    NSLog(@"dbPassword %@ checkPasswrod %@", dbPassword, checkPasswrod);
     
     if([dbPassword isEqualToString:checkPasswrod]){
         self.accountType = accountType;
@@ -90,9 +84,9 @@ static NSString * const kSQLUpdate = @""
     return NO;
 }
 
-- (NSString *)getCurrentAccountName {
+- (NSString *)getAccountName:(AccountType)accountType {
     NSString *name = nil;
-    switch (self.accountType) {
+    switch (accountType) {
         case ACCOUNT_NORMAL:
             name = normalName;
             break;
@@ -106,9 +100,9 @@ static NSString * const kSQLUpdate = @""
     return name;
 }
 
-- (NSString *)getCurrentAccountImage {
+- (NSString *)getAccountImage:(AccountType)accountType {
     NSString *name = nil;
-    switch (self.accountType) {
+    switch (accountType) {
         case ACCOUNT_NORMAL:
             name = normalImage;
             break;
@@ -120,6 +114,14 @@ static NSString * const kSQLUpdate = @""
             break;
     }
     return name;
+}
+
+- (NSString *)getCurrentAccountName {
+    return [self getAccountName:self.accountType];
+}
+
+- (NSString *)getCurrentAccountImage {
+    return [self getAccountImage:self.accountType];
 }
 
 #pragma mark - Private

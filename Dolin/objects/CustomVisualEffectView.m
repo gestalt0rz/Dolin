@@ -7,6 +7,10 @@
 //
 
 #import "CustomVisualEffectView.h"
+#import "ViewController.h"
+#import "Account.h"
+
+#pragma mark - CustomVisualEffectView
 
 @interface CustomVisualEffectView () {
     NSPoint initialLocation;
@@ -66,6 +70,8 @@
 
 @end
 
+#pragma mark - CustomTableRowView
+
 @implementation CustomTableRowView
 
 - (void)drawSelectionInRect:(NSRect)dirtyRect {
@@ -86,6 +92,134 @@
 
 @end
 
-//@implementation NSSearchFieldCell (height)
+#pragma mark - CustomImageView
 
-//@end
+@interface CustomImageView () {
+    NSTrackingArea *trackingArea;
+    NSImageView *largeImageView;
+}
+@end
+
+@implementation CustomImageView
+
+- (void)mouseEntered:(NSEvent *)theEvent {
+    //NSLog(@"Mouse entered");
+    largeImageView = [NSImageView imageViewWithImage:self.image];
+    [largeImageView setFrame:NSMakeRect(13, 5, 48, 48)];
+    
+    [largeImageView setWantsLayer:YES];
+    
+    largeImageView.layer.cornerRadius = largeImageView.frame.size.width / 2;
+    largeImageView.layer.masksToBounds = YES;
+    
+    [[self superview] addSubview:largeImageView];
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+    //NSLog(@"Mouse exited");
+    
+    [largeImageView removeFromSuperview];
+    largeImageView = nil;
+}
+
+- (void)updateTrackingAreas {
+    [super updateTrackingAreas];
+    if(trackingArea != nil) {
+        [self removeTrackingArea:trackingArea];
+        trackingArea = nil;
+    }
+    
+    int opts = (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways);
+    trackingArea = [[NSTrackingArea alloc] initWithRect:[self bounds]
+                                                 options:opts
+                                                   owner:self
+                                                userInfo:nil];
+    [self addTrackingArea:trackingArea];
+}
+
+@end
+
+#pragma mark - popoverViewController
+
+@interface popoverViewController () {
+    NSArray *staticItems;
+    NSInteger itemsCount;
+    Account *acc;
+}
+@end
+
+@implementation popoverViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // Do any additional setup after loading the view.
+    acc = [Account sharedAccount];
+    
+    // table view
+    staticItems = @[
+                    @[[acc getAccountImage:ACCOUNT_NORMAL], [acc getAccountName:ACCOUNT_NORMAL]],
+                    @[[acc getAccountImage:ACCOUNT_ADMIN], [acc getAccountName:ACCOUNT_ADMIN]],
+                    @[[acc getAccountImage:ACCOUNT_PROGRAMMER], [acc getAccountName:ACCOUNT_PROGRAMMER]],
+                    ];
+    itemsCount = [staticItems count];
+    
+    [_accountTableView setUsesStaticContents:YES];
+    [_accountTableView setDelegate:self];
+    [_accountTableView setDataSource:self];
+}
+
+-(void)close{
+    //NSLog(@"%@ %@", [self className], NSStringFromSelector(_cmd));
+    if([(ViewController *)_container respondsToSelector:@selector(closePopover)])
+        [(ViewController *)_container closePopover];
+}
+
+// DataSource
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return itemsCount;
+}
+
+// Delegate
+- (NSView *)tableView:(NSTableView *)tableView
+   viewForTableColumn:(NSTableColumn *)tableColumn
+                  row:(NSInteger)row {
+    NSString *strIdt = @"accountView";
+    NSTableCellView *cell = [tableView makeViewWithIdentifier:strIdt owner:self];
+    
+    cell.imageView.image = [NSImage imageNamed:staticItems[row][0]];
+    [cell.imageView setWantsLayer:YES];
+    
+    cell.imageView.layer.cornerRadius = cell.imageView.frame.size.width / 2;
+    cell.imageView.layer.masksToBounds = YES;
+    
+    cell.textField.stringValue = staticItems[row][1];
+    
+    return cell;
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+    NSTableView* tableView = notification.object;
+    NSInteger row = [tableView selectedRow];
+    
+    if(row != -1) {
+        switch (row) {
+            case ACCOUNT_NORMAL:
+                [acc logout];
+                break;
+            case ACCOUNT_ADMIN:
+            case ACCOUNT_PROGRAMMER: {
+                BOOL result = [acc login:(AccountType)row password:@"swee0108"];
+                NSLog(@"login result: %@", result?@"YES":@"NO");
+            }
+                break;
+            default:
+                break;
+        }
+        
+        [tableView deselectAll:nil];
+        [self close];
+    }
+}
+
+@end
