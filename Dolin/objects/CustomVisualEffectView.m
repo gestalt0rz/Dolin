@@ -208,10 +208,8 @@
                 [acc logout];
                 break;
             case ACCOUNT_ADMIN:
-            case ACCOUNT_PROGRAMMER: {
-                BOOL result = [acc login:(AccountType)row password:@"swee0108"];
-                NSLog(@"login result: %@", result?@"YES":@"NO");
-            }
+            case ACCOUNT_PROGRAMMER:
+                [self showPasswordAlert:(AccountType)row];
                 break;
             default:
                 break;
@@ -220,6 +218,43 @@
         [tableView deselectAll:nil];
         [self close];
     }
+}
+
+#pragma mark - nsalert on sheet
+
+- (void)showPasswordAlert:(AccountType)type {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"登入"];
+    [alert addButtonWithTitle:@"取消"];
+    
+    NSSecureTextField *passwordTextField = [[NSSecureTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+    NSStackView *stack = [[NSStackView alloc] initWithFrame:NSMakeRect(0, 0, 200, 34)];
+    [stack addSubview:passwordTextField];
+    [alert setAccessoryView:stack];
+    
+    [alert setMessageText:[acc getAccountName:type]];
+    [alert setInformativeText:@"請輸入登入密碼"];
+    [alert setAlertStyle:NSAlertStyleInformational];
+    [alert beginSheetModalForWindow:[[(ViewController *)_container view] window] completionHandler:^(NSModalResponse returnCode){
+        if (returnCode == NSAlertFirstButtonReturn) {
+            NSLog(@"(returnCode == NSModalResponseOK)");
+            BOOL result = [self->acc login:type password:[passwordTextField stringValue]];
+            NSLog(@"login result: %@", result?@"YES":@"NO");
+            if (result) {
+                [self close];
+            }else {
+                NSAlert *errorAlert = [[NSAlert alloc] init];
+                [errorAlert addButtonWithTitle:@"OK"];
+                [errorAlert setMessageText:@"密碼錯誤"];
+                [errorAlert setAlertStyle:NSAlertStyleWarning];
+                [errorAlert beginSheetModalForWindow:[[(ViewController *)self->_container view] window] completionHandler:^(NSModalResponse returnCode){
+                    NSLog(@"error alert ok");
+                }];
+            }
+        }else {
+            NSLog(@"password alert cancel");
+        }
+    }];
 }
 
 @end
